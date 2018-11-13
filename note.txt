@@ -1,0 +1,45 @@
+﻿git 操作:
+git config --global push.default simple
+
+/--------------开始------------/
+git init
+git remote add origin git@github.com:zgf123/laraapp.git
+git commit -m "message"
+git push -u origin master
+
+git add -A
+git status
+git commit -m "msg"
+git push
+
+git checkout .
+git clean -f -d
+
+git remote -v
+git remote set-url origin git@github.com:zgf123/laraapp.git
+git remote rm origin 
+git remote add origin git@github.com:zgf123/laraapp.git
+
+git log
+按q退出
+
+不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+git reset --mixed HEAD^
+
+不删除工作空间改动代码，撤销commit，不撤销git add . 
+git reset --soft HEAD^
+
+删除工作空间改动代码，撤销commit，撤销git add . 
+git reset --hard HEAD^
+
+查看提交日志以及提交的id
+git reflog
+恢复到某提交日志
+git reset <reflog_id> 
+
+http.postBuffer默认上限为1M，在git的配置里将http.postBuffer变量改大一些即可，比如将上限设为500M。 //不可用
+git config --global http.postBuffer 524288000
+
+
+git pull origin master
+git push --set-upstream origin master
