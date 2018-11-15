@@ -11,8 +11,6 @@ use Auth;
 use App\Handlers\ImageUploadHandler;
 use Illuminate\Support\Facades\Cache;
 
-header("Content-Type: text/html;charset=utf-8");
-
 class TopicsController extends Controller
 {
     public function __construct()
