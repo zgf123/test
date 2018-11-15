@@ -28,7 +28,7 @@ class AddIntoductionAdnAvatarToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('avatar');
-            $table->dropColumn('intoduction');
+            $table->dropColumn('introduction');
         });
     }
 }
