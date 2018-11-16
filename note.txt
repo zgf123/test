@@ -40,6 +40,5 @@ git reset <reflog_id>
 http.postBuffer默认上限为1M，在git的配置里将http.postBuffer变量改大一些即可，比如将上限设为500M。 //不可用
 git config --global http.postBuffer 524288000
 
-
 git pull origin master
 git push --set-upstream origin master
