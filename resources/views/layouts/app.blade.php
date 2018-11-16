@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div id="app" class="{{ route_class() }}-page">
+    <div id="app" class="{{ route_class() }}-page}}">
 
         @include('layouts._header')
 
@@ -29,6 +29,10 @@
 
         @include('layouts._footer')
     </div>
+
+    @if (config('app.debug'))
+        @include('sudosu::user-selector')
+    @endif
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

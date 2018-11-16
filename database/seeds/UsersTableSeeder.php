@@ -37,8 +37,14 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'menhera';
         $user->email = '277845885@qq.com';
-        $user->avatar = 'http://larabbs.test/uploads/images/avatars/201811/15/1_1542250871_pCgfyldfDT.gif';
+        $user->avatar = 'http://larabbs.test/uploads/images/avatars/201811/16/1_1542350964_00fBX8L6AJ.gif';
         $user->save();
 
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为『管理员』
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
