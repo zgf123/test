@@ -11,6 +11,7 @@ use Auth;
 use App\Handlers\ImageUploadHandler;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
+use App\Models\Link;
 
 class TopicsController extends Controller
 {
