@@ -8,8 +8,9 @@ use App\Http\Requests\Api\VerificationCodeRequest;
 
 class VerificationCodesController extends Controller
 {
-    public function store(verificationCodeRequest $request, EasySms $easysms)
+    public function store(verificationCodeRequest $request)
     {
+        $easysms = app('easysms');
         $phone = $request->phone;
         if(config('app.env') == 'local'){
             $code = '1231';
@@ -31,7 +32,7 @@ class VerificationCodesController extends Controller
         \Cache::put($key, ['phone'=>$phone, 'code'=>$code], $expired);
         
         return $this->response->array([
-            'key' => $key,
+            'notification_key' => $key,
             'expired_at' => $expired->toDateTimeString()
         ])->setStatusCode(201);
     }
