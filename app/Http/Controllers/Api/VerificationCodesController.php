@@ -11,7 +11,18 @@ class VerificationCodesController extends Controller
     public function store(verificationCodeRequest $request)
     {
         $easysms = app('easysms');
-        $phone = $request->phone;
+
+        $captchaData = \Cache::get($request->captcha_key);
+        if(!$captchaData){
+            return $this->response->error('验证码失效', 422);
+        }
+
+        if($request->captcha_code !== $captchaData['code']){
+            return $this->response->error('验证码错误', 422);
+        }
+
+        $phone = $captchaData['phone'];
+
         if(config('app.env') == 'local'){
             $code = '1231';
         }else{
