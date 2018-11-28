@@ -9,6 +9,7 @@ class TopicPolicy extends Policy
 {
     public function update(User $user, Topic $topic)
     {
+        dd(1);
         return $user->isAuthorOf($topic);
     }
 
